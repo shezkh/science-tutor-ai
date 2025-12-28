@@ -290,4 +290,10 @@ async def ask_tutor(
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"AI Error: {str(e)}")
 
+from fastapi.responses import FileResponse
+
+@app.get("/")
+async def serve_home():
+    return FileResponse("index.html")
+
 # Run: uvicorn main:app --reload
